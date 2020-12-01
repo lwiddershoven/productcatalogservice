@@ -31,12 +31,12 @@ public class ProductCatalogResource {
                 ? getProductsHandler.getAllProducts()
                 : searchProductsHandler.searchProducts(query);
 
-            return ProductResponse.builder()
-                    .products(
-                            domainProducts.stream()
-                                    .map(Product::fromDomain)
-                                    .collect(Collectors.toList())
-                    ).build();
+        return ProductResponse.builder()
+                .products(
+                        domainProducts.stream()
+                                .map(Product::fromDomain)
+                                .collect(Collectors.toList())
+                ).build();
     }
 
     @GetMapping("/products/{productId}")
